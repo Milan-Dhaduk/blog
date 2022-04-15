@@ -1,4 +1,18 @@
 <?php
+    class RegisterModel extends Database
+    {
+        public $conn;
+
+        public function __construct()
+        {
+            $this->conn = new Database();    
+        }
+
+        public function registerData()
+        {
+            $sql = "";
+        }
+    }
 
 
 ?>
