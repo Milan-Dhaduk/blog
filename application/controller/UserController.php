@@ -7,7 +7,14 @@
             
         }
         public function index() {
-            echo "index Method";
+            $this->view("home");
+        }
+
+        public function login() {
+            $this->model('UserModel');
+            $user = new UserModel();
+            $user->login();
+            $this->view('login');
         }
 
         public function getAll($id)

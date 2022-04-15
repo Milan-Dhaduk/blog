@@ -1,7 +1,7 @@
 <?php
 // for controller only
     class Rout {
-        public $controller = "Welcome";  //welcome page
+        public $controller = "UserController";  //welcome page
         public $method = "index";  // welcome page index method set 
         public $parameter = []; // user can pass maultiple parameter request url
         
