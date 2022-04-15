@@ -1,9 +1,7 @@
-<?php 
-
-
+<?php
 // for controller only
-    class Route {
-        public $controller = "Pages";  //pages page for controlller folder
+    class Rout {
+        public $controller = "Welcome";  //welcome page
         public $method = "index";  // welcome page index method set 
         public $parameter = []; // user can pass maultiple parameter request url
         
@@ -12,17 +10,17 @@
             $url = $this->url();
 
             if(!empty($url)) {  //url empty not
-                if(file_exists("../app/controllers/" .$url[0]. ".php")) { //controller present
+                if(file_exists("../application/controller/" .$url[0]. ".php")) { //controller present
                     $this->controller = $url[0];   // deafult controller replace
                     unset($url[0]);                 // remove controller
                 } else {
                     echo "Sorry Controller " .$url[0]. ".php not Found";
                 }
             }
-            
+           // print_r($this->controller);
 
             // include controller 
-            include_once "../app/controllers/" .$this->controller. ".php";
+            include_once "../application/controller/" .$this->controller. ".php";
 
             // create object of controller folder
             $this->controller = new $this->controller; //instance of controller variable
@@ -43,6 +41,8 @@
             }
             
             
+            //print_r($this->method);
+           
             call_user_func_array([$this->controller, $this->method],$this->parameter);
         }
 
@@ -52,7 +52,7 @@
                 $url = rtrim($url);
                 $url = filter_var($url, FILTER_SANITIZE_URL);
                 $url = explode("/", $url);
-                
+                //print_r($url);
                 return $url;
             }
         }

@@ -1,2 +1,7 @@
 <?php
-    require_once '../require.php';
+
+    include_once "../system/init.php";
+
+
+
+?>
